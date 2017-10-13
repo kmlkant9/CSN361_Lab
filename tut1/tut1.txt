@@ -1,0 +1,45 @@
+Lab1(CSN - 361)
+
+1.	-c do no run linker
+	-S get assembly code
+	-E nothing except preprocessing
+	-o name output file
+2.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]) {
+	int a = atoi(argv[1]);
+	char op = argv[2][0];
+	int b = atoi(argv[3]);
+
+	printf("%d %c %d\n",a,op,b);
+
+	int ans=0;
+
+	switch(op) {
+		case '+':
+			ans=a+b; break;
+		case '-':
+			ans=a-b; break;
+		case '*':
+			ans=a*b; break;
+		case '/':
+			ans=a/b; break;
+	}
+	printf("%d\n",ans);
+	return 0;
+}
+
+3.
+31 new processes will be created.
+
+#include <bits/stdc++.h>
+#include <unistd.h>
+using namespace std;
+
+int main() {
+	fork();
+	cout<<getpid()<<endl;
+	return 0;
+}
