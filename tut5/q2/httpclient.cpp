@@ -167,9 +167,10 @@ char* get_hashed_file_name(char *name) {
     return def_name;
   }
   int lname = strlen(name);
-  char *ret_name = (char *)malloc(sizeof(char)*lname/2);
+  char *ret_name = (char *)malloc(sizeof(char)*(lname/2+1));
   for(int i=0; i<lname/2; i++) {
     ret_name[i] = (char)(((name[i]+name[lname-i-1])/2)%26+97);
+    ret_name[i+1]='\0';
   }
   return ret_name;
 }
